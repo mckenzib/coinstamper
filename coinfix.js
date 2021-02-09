@@ -77,7 +77,7 @@ function runUpgrades() {
       playState.increasePressSpeed(playState.coinPressSpeedButton)
    if (typeof playState.coinUpgradeButton!=='undefined' && playState.coinUpgradeButton.visible)
       playState.setCoinValue(playState.coinUpgradeButton);
-
+   playState.hideToast()
    updateScores()
    for (x in playState.upgradeButtons.children) {
       myobj = playState.upgradeButtons.children[x];
@@ -99,4 +99,5 @@ function runUpgrades() {
          }
       }
    }
+   playState.hideToast()
 }
