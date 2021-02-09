@@ -69,14 +69,15 @@ function updateScores(multiplier=100)
 }
 function runUpgrades() {
    updateScores()
-   if (playState.coinPressMultButton.visible)
-      playState.increasePressMultiplier(playState.coinPressMultButton)
-   if (playState.coinPressSpeedButton.visible)
-      playState.increasePressSpeed(playState.coinPressSpeedButton)
-   if (playState.coinUpgradeButton.visible)
-      playState.setCoinValue(playState.coinUpgradeButton);
-   if (playState.autoPressButton.visible)
+   if (typeof playState.autoPressButton!=='undefined' && playState.autoPressButton.visible)
       playState.buyAutoPress(playState.autoPressButton);
+   if (typeof playState.coinPressMultButton!=='undefined' && playState.coinPressMultButton.visible)
+      playState.increasePressMultiplier(playState.coinPressMultButton)
+   if (typeof playState.coinPressSpeedButton!=='undefined' && playState.coinPressSpeedButton.visible)
+      playState.increasePressSpeed(playState.coinPressSpeedButton)
+   if (typeof playState.coinUpgradeButton!=='undefined' && playState.coinUpgradeButton.visible)
+      playState.setCoinValue(playState.coinUpgradeButton);
+
    updateScores()
    for (x in playState.upgradeButtons.children) {
       myobj = playState.upgradeButtons.children[x];
