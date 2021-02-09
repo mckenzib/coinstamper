@@ -1,3 +1,8 @@
+/***
+ * Coin press auto code
+ * Author - Daddy
+ ***/
+
 coinPressInterval = window.setInterval(function () { playState.coinPressed(false) }, 50);
 buyAllInterval = window.setInterval(function () { buyAll() }, 5000);
 toggleSound(playState.soundButton)
@@ -57,6 +62,7 @@ function buyAll(numberBought = 50) {
 
 function updateScores(multiplier=100)
 {
+   /* there could be a more sophisticated way to do this, but for now, just setting to infinity */
   /* //console.log(playState.currentScore);
    if (playState.currentScore < Number.MAX_VALUE)
    {
@@ -69,6 +75,7 @@ function updateScores(multiplier=100)
 }
 function runUpgrades() {
    updateScores()
+   /* check for "auto press" upgrade and run it */
    if (typeof playState.autoPressButton!=='undefined' && playState.autoPressButton.visible)
       playState.buyAutoPress(playState.autoPressButton);
    if (typeof playState.coinPressMultButton!=='undefined' && playState.coinPressMultButton.visible)
@@ -78,6 +85,7 @@ function runUpgrades() {
    if (typeof playState.coinUpgradeButton!=='undefined' && playState.coinUpgradeButton.visible)
       playState.setCoinValue(playState.coinUpgradeButton);
    playState.hideToast()
+
    updateScores()
    for (x in playState.upgradeButtons.children) {
       myobj = playState.upgradeButtons.children[x];
