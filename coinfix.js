@@ -3,9 +3,9 @@
  * Author - Daddy
  ***/
 
-coinPressInterval = window.setInterval(function () { playState.coinPressed(false) }, 50);
-buyAllInterval = window.setInterval(function () { buyAll() }, 5000);
-toggleSound(playState.soundButton)
+coinPressInterval = window.setInterval(function () { playState.coinPressed(false) }, 50); //press coins every 50 ms
+buyAllInterval = window.setInterval(function () { buyAll() }, 5000); // run upgrades every 5 seconds (otherwise, too fast)
+toggleSound(playState.soundButton)  // turn the sound off
 
 function buyAll(numberBought = 50) {
    updateScores()
@@ -15,7 +15,7 @@ function buyAll(numberBought = 50) {
       playState.buyMachine(playState.pennyButton);
 
    }
-   playState.hideToast()
+   playState.hideToast() //"hide toast" just hides the popup that runs after certain upgrades
 
    for (i = 0; i < numberBought; i++) {
       playState.buyMachine(playState.nickelButton);
@@ -75,7 +75,7 @@ function updateScores(multiplier=100)
 }
 function runUpgrades() {
    updateScores()
-   /* check for "auto press" upgrade and run it */
+   // check for various upgrades, and then run them if they are visible
    if (typeof playState.autoPressButton!=='undefined' && playState.autoPressButton.visible)
       playState.buyAutoPress(playState.autoPressButton);
    if (typeof playState.coinPressMultButton!=='undefined' && playState.coinPressMultButton.visible)
