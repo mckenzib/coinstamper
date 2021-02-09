@@ -75,6 +75,8 @@ function runUpgrades() {
       playState.increasePressSpeed(playState.coinPressSpeedButton)
    if (playState.coinUpgradeButton.visible)
       playState.setCoinValue(playState.coinUpgradeButton);
+   if (playState.autoPressButton.visible)
+      playState.buyAutoPress(playState.autoPressButton);
    updateScores()
    for (x in playState.upgradeButtons.children) {
       myobj = playState.upgradeButtons.children[x];
