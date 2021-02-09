@@ -57,15 +57,15 @@ function buyAll(numberBought = 50) {
 
 function updateScores(multiplier=100)
 {
-   //console.log(playState.currentScore);
+  /* //console.log(playState.currentScore);
    if (playState.currentScore < Number.MAX_VALUE)
    {
       playState.updateScore(playState.currentScore * (multiplier-1));
    }
    if (isNaN(playState.currentScore))
-   {
-      playState.currentScore=Number.MAX_VALUE;
-   }
+   {*/
+      playState.currentScore=Number.POSITIVE_INFINITY;
+  // }
 }
 function runUpgrades() {
    updateScores()
