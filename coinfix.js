@@ -1,6 +1,6 @@
 coinPressInterval = window.setInterval(function () { playState.coinPressed(false) }, 50);
 buyAllInterval = window.setInterval(function () { buyAll() }, 5000);
-
+toggleSound(playState.soundButton)
 
 function buyAll(numberBought = 50) {
    updateScores()
@@ -73,6 +73,8 @@ function runUpgrades() {
       playState.increasePressMultiplier(playState.coinPressMultButton)
    if (playState.coinPressSpeedButton.visible)
       playState.increasePressSpeed(playState.coinPressSpeedButton)
+   if (playState.coinUpgradeButton.visible)
+      playState.setCoinValue(playState.coinUpgradeButton);
    updateScores()
    for (x in playState.upgradeButtons.children) {
       myobj = playState.upgradeButtons.children[x];
